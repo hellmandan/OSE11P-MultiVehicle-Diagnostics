@@ -1,0 +1,410 @@
+{
+  "schema_version": "1.1.0",
+  "database_type": "vehicle_diagnostics_and_authorised_control_compatibility",
+  "scope": "Generic OBD-II definitions and manufacturer coverage metadata. Model-specific support requires validated definitions.",
+  "protocols": [
+    {
+      "name": "ISO 15765-4 CAN",
+      "notes": "Common OBD-II CAN transport; addressing and bitrate are vehicle-dependent."
+    },
+    {
+      "name": "ISO 9141-2",
+      "notes": "Legacy K-line diagnostics."
+    },
+    {
+      "name": "ISO 14230-4 KWP2000",
+      "notes": "Legacy K-line diagnostics."
+    },
+    {
+      "name": "SAE J1850 PWM/VPW",
+      "notes": "Legacy protocols; adapter support varies."
+    },
+    {
+      "name": "ISO 14229 UDS",
+      "notes": "Modern diagnostic application protocol; services and security are ECU-specific."
+    }
+  ],
+  "standard_obd_modes": [
+    {
+      "mode": "01",
+      "name": "Current powertrain data",
+      "examples": [
+        "010C RPM",
+        "010D speed",
+        "0105 coolant",
+        "0142 module voltage"
+      ],
+      "safety": "Read-only"
+    },
+    {
+      "mode": "02",
+      "name": "Freeze-frame data",
+      "safety": "Read-only"
+    },
+    {
+      "mode": "03",
+      "name": "Stored emissions DTCs",
+      "safety": "Read-only"
+    },
+    {
+      "mode": "04",
+      "name": "Clear emissions DTCs",
+      "safety": "State-changing; confirmation required"
+    },
+    {
+      "mode": "07",
+      "name": "Pending emissions DTCs",
+      "safety": "Read-only"
+    },
+    {
+      "mode": "09",
+      "name": "Vehicle information including VIN where supported",
+      "safety": "Read-only"
+    },
+    {
+      "mode": "0A",
+      "name": "Permanent emissions DTCs",
+      "safety": "Read-only"
+    }
+  ],
+  "uds_service_catalogue": [
+    {
+      "sid": "0x10",
+      "name": "DiagnosticSessionControl",
+      "note": "Documented sessions only."
+    },
+    {
+      "sid": "0x11",
+      "name": "ECUReset",
+      "note": "State-changing; no generic execution."
+    },
+    {
+      "sid": "0x14",
+      "name": "ClearDiagnosticInformation",
+      "note": "State-changing; ECU-specific."
+    },
+    {
+      "sid": "0x19",
+      "name": "ReadDTCInformation",
+      "note": "Read diagnostic trouble code information."
+    },
+    {
+      "sid": "0x22",
+      "name": "ReadDataByIdentifier",
+      "note": "Read documented identifiers only."
+    },
+    {
+      "sid": "0x27",
+      "name": "SecurityAccess",
+      "note": "Requires authorised credentials and documented integration."
+    },
+    {
+      "sid": "0x2E",
+      "name": "WriteDataByIdentifier",
+      "note": "State-changing; excluded from generic execution."
+    },
+    {
+      "sid": "0x2F",
+      "name": "InputOutputControlByIdentifier",
+      "note": "Actuator control; excluded from generic execution."
+    },
+    {
+      "sid": "0x31",
+      "name": "RoutineControl",
+      "note": "Can initiate ECU routines; excluded from generic execution."
+    }
+  ],
+  "manufacturers": [
+    {
+      "make": "Acura",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Audi",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "BMW",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Buick",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Cadillac",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Chevrolet",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Chrysler",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Dodge",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Ford",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "GMC",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Holden",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Honda",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Hyundai",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Infiniti",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Isuzu",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Jaguar",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Jeep",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Kia",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Land Rover",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Lexus",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Lincoln",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Mazda",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Mercedes-Benz",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Mercury",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Mini",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Mitsubishi",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Nissan",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Opel",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Peugeot",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Porsche",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Ram",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Renault",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Saab",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Subaru",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Suzuki",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Toyota",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Volkswagen",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    },
+    {
+      "make": "Volvo",
+      "coverage": "metadata_only_until_vehicle_definition_is_validated",
+      "generic_obd": "Supported where SAE J1979/ISO 15031 is implemented and adapter supports the transport.",
+      "enhanced_diagnostics": "Requires validated model/year/market/ECU definitions.",
+      "remote_start": "Only through a documented authenticated compatible controller; never assume a CAN start frame."
+    }
+  ],
+  "remote_start_policy": {
+    "universal_elm327_start_command": false,
+    "raw_can_start_injection": false,
+    "reason": "No universal remote-start frame or security credential exists across vehicle makes and models.",
+    "allowed_implementation": "Authenticated controller integration with independently verified safety interlocks.",
+    "required_interlocks": [
+      "Park/Neutral",
+      "Parking brake where required",
+      "Bonnet closed",
+      "Brake/immobilisation interlocks",
+      "Immobiliser authorisation",
+      "Controller authentication",
+      "Start timeout and fail-safe shutdown"
+    ],
+    "excluded": [
+      "Unverified ignition/starter frames",
+      "Immobiliser bypass sequences",
+      "Guessed security keys or seed/key algorithms"
+    ]
+  },
+  "adapter_notes": [
+    "ELM327 clone firmware varies.",
+    "Bluetooth Classic SPP supported by this starter; BLE transport not implemented.",
+    "Generic OBD-II does not expose every vehicle module."
+  ]
+}
